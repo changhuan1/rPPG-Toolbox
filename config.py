@@ -348,6 +348,21 @@ _C.MODEL.PHYSFORMER.NUM_LAYERS = 12
 _C.MODEL.PHYSFORMER.THETA = 0.7
 
 # -----------------------------------------------------------------------------
+# Model Settings for RT-MRCPNet
+# -----------------------------------------------------------------------------
+_C.MODEL.RTMRCPNET = CN()
+_C.MODEL.RTMRCPNET.NUM_ROIS = 5
+_C.MODEL.RTMRCPNET.INPUT_CHANNELS = 3
+_C.MODEL.RTMRCPNET.HIDDEN_DIM = 128
+_C.MODEL.RTMRCPNET.NUM_CLASSES = 2
+_C.MODEL.RTMRCPNET.DROPOUT = 0.5
+_C.MODEL.RTMRCPNET.USE_TEMPORAL_ATTENTION = True
+_C.MODEL.RTMRCPNET.USE_REGION_ATTENTION = True
+_C.MODEL.RTMRCPNET.USE_REGION_RESIDUAL = True
+_C.MODEL.RTMRCPNET.DATA_VARIANT = "multi_roi"
+_C.MODEL.RTMRCPNET.ARCHITECTURE = "rtmrcpnet"
+
+# -----------------------------------------------------------------------------
 # Inference settings
 # -----------------------------------------------------------------------------
 _C.INFERENCE = CN()

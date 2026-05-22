@@ -83,6 +83,8 @@ def train_and_test(config, data_loader_dict):
         model_trainer = trainer.PhysMambaTrainer.PhysMambaTrainer(config, data_loader_dict)
     elif config.MODEL.NAME == 'RhythmFormer':
         model_trainer = trainer.RhythmFormerTrainer.RhythmFormerTrainer(config, data_loader_dict)
+    elif config.MODEL.NAME == 'RTMRCPNet':
+        model_trainer = trainer.RT_MRCPNetTrainer.RTMRCPNetTrainer(config, data_loader_dict)
     else:
         raise ValueError('Your Model is Not Supported  Yet!')
     model_trainer.train(data_loader_dict)
@@ -111,6 +113,8 @@ def test(config, data_loader_dict):
         model_trainer = trainer.PhysMambaTrainer.PhysMambaTrainer(config, data_loader_dict)
     elif config.MODEL.NAME == 'RhythmFormer':
         model_trainer = trainer.RhythmFormerTrainer.RhythmFormerTrainer(config, data_loader_dict)
+    elif config.MODEL.NAME == 'RTMRCPNet':
+        model_trainer = trainer.RT_MRCPNetTrainer.RTMRCPNetTrainer(config, data_loader_dict)
     else:
         raise ValueError('Your Model is Not Supported  Yet!')
     model_trainer.test(data_loader_dict)
@@ -168,6 +172,8 @@ if __name__ == "__main__":
             train_loader = data_loader.BP4DPlusBigSmallLoader.BP4DPlusBigSmallLoader
         elif config.TRAIN.DATA.DATASET == "UBFC-PHYS":
             train_loader = data_loader.UBFCPHYSLoader.UBFCPHYSLoader
+        elif config.TRAIN.DATA.DATASET == "UBFC-PHYS-STRESS-RGB":
+            train_loader = data_loader.UBFCPHYSStressRGBLoader.UBFCPHYSStressRGBLoader
         elif config.TRAIN.DATA.DATASET == "iBVP":
             train_loader = data_loader.iBVPLoader.iBVPLoader
         elif config.TRAIN.DATA.DATASET == "PhysDrive":
@@ -215,6 +221,8 @@ if __name__ == "__main__":
             valid_loader = data_loader.BP4DPlusBigSmallLoader.BP4DPlusBigSmallLoader
         elif config.VALID.DATA.DATASET == "UBFC-PHYS":
             valid_loader = data_loader.UBFCPHYSLoader.UBFCPHYSLoader
+        elif config.VALID.DATA.DATASET == "UBFC-PHYS-STRESS-RGB":
+            valid_loader = data_loader.UBFCPHYSStressRGBLoader.UBFCPHYSStressRGBLoader
         elif config.VALID.DATA.DATASET == "iBVP":
             valid_loader = data_loader.iBVPLoader.iBVPLoader
         elif config.VALID.DATA.DATASET == "PhysDrive":
@@ -264,6 +272,8 @@ if __name__ == "__main__":
             test_loader = data_loader.BP4DPlusBigSmallLoader.BP4DPlusBigSmallLoader
         elif config.TEST.DATA.DATASET == "UBFC-PHYS":
             test_loader = data_loader.UBFCPHYSLoader.UBFCPHYSLoader
+        elif config.TEST.DATA.DATASET == "UBFC-PHYS-STRESS-RGB":
+            test_loader = data_loader.UBFCPHYSStressRGBLoader.UBFCPHYSStressRGBLoader
         elif config.TEST.DATA.DATASET == "iBVP":
             test_loader = data_loader.iBVPLoader.iBVPLoader
         elif config.TEST.DATA.DATASET == "PhysDrive":
